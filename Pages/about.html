@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Announcements - Logical Foundation</title>
+    <title>About - Logical Foundation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M8 16V8h8'/%3E%3C/svg%3E" type="image/svg+xml">
@@ -119,83 +119,91 @@
 
     <nav class="bg-blue-900 dark:bg-blue-950 p-4 text-white shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center text-2xl font-bold text-white rounded-lg p-2 hover:bg-blue-600 dark:hover:bg-blue-800 transition duration-300">
+            <a href="/index.html" class="flex items-center text-2xl font-bold text-white rounded-lg p-2 hover:bg-blue-600 dark:hover:bg-blue-800 transition duration-300">
                 <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12" cy="12" r="10" stroke-width="2"/>
                     <path d="M8 16V8h8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>Logical Foundation
+                </svg>
+                Logical Foundation
             </a>
             
             <div class="hidden md:flex space-x-6">
-                <a href="about.html" class="hover:text-blue-200 transition duration-300 p-2 rounded-lg text-2xl hover:bg-blue-600 dark:hover:bg-blue-800">About Us</a>
+                <a href="news.html" class="hover:text-blue-200 transition duration-300 p-2 rounded-lg text-2xl hover:bg-blue-600 dark:hover:bg-blue-800">Announcements</a>
                 <a href="resources.html" class="hover:text-blue-200 text-2xl duration-300 p-2 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-800">Resources</a>
             </div>
 
-            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-800 transition duration-300">
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 hover:bg-blue-600 dark:hover:bg-blue-800 transition duration-300">
                 <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
                 </svg>
             </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-blue-900 dark:bg-blue-950 mt-2 rounded-lg mx-auto container">
-            <a href="about.html" class="block py-3 px-4 text-white hover:bg-blue-700 dark:hover:bg-blue-900 rounded-lg text-2xl duration-300">About Us</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-900 dark:bg-blue-950 mt-2 mx-auto container">
+            <a href="news.html" class="block py-3 px-4 text-white hover:bg-blue-700 dark:hover:bg-blue-900 rounded-lg text-2xl duration-300">Announcements</a>
             <a href="resources.html" class="block py-3 px-4 text-2xl text-white hover:bg-blue-700 dark:hover:bg-blue-900 rounded-lg transition duration-300">Resources</a>
         </div>
     </nav>
 
-    <main class="container mx-auto p-8 py-12">
-        <h1 class="text-4xl font-extrabold text-blue-800 dark:text-blue-300 mb-8 text-center">Announcements</h1>
+    <main class="container mx-auto p-8 py-12 lex flex-col items-center justify-center">
+    <h1 class="text-4xl font-extrabold text-blue-800 dark:text-blue-300 mb-8 text-center">About Us</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
+                <h2 class="text-3xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Our Story</h2>
+                <p class="text-lg dark:text-gray-300 leading-relaxed text-justify font-comfortaa">
+                    The Logical Foundation was a dream back in 2025 and now an aim of a gtoup of University going students of Bangladesh who wanted to make a difference and change the society in a positive way by promoting logic, scientific literacy and critical thinking in the post-revolution unstable period.
+                </p>
+            </div>
 
-        <div class="mb-8">
-            <input type="text" id="announcement-search" placeholder="Search announcements..." class="w-full p-3 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 transition duration-300">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
+                <h2 class="text-3xl font-extrabold text-blue-700 dark:text-blue-400 mb-4">Our Leaders</h2>
+                <ul class="list-disc list-inside text-lg font-semibold text-justify text-gray-700 dark:text-gray-300 space-y-3 font-comfortaa">
+                    <li>Muktadir Somio : Co-Founder</li>
+                    <li>X : Co-Founder</li>
+                    <li>Y : Co-Founder</li>
+                </ul>
+                </div>
         </div>
 
-        <div id="announcement-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="announcement-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
-                <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Launch Event</h2>
-                <p class="text-lg dark:text-gray-300 leading-relaxed text-justify mb-4 font-comfortaa">
-                    Join us for the event in Youtube Live where we discuss our founding story, our goals, and the importance of science and logic in the modern age.
-                </p>
-                <p class="text-md font-bold text-gray-600 dark:text-gray-400 mb-4 font-comfortaa">Date: August 5, 2025</p>
-                <div class="mt-4 flex justify-end">
-                    <button class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                        <a href="#" target="_blank">Register Now!</a>
-                    </button>
-                </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
+                <h2 class="text-3xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Milestones</h2>
+                <ul class="list-disc list-inside text-lg font-bold text-justify text-gray-700 dark:text-gray-300 space-y-3 font-comfortaa">
+                    <li class="flex items-center gap-2">
+                        <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        2025: Logical Foundation started its journey.
+                    </li>
+                    
+                </ul>
             </div>
 
-            <div class="announcement-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
-                <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Workshop-01</h2>
-                <p class="text-lg dark:text-gray-300 leading-relaxed text-justify mb-4 font-comfortaa">
-                    Our first online workshop will cover fundamental concepts, common logical fallacies, and their application in everyday life.
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
+                <h2 class="text-3xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Get in Touch</h2>
+                <p class="text-lg dark:text-gray-300 leading-relaxed text-justify mb-6 font-comfortaa">
+                    Mail us for any information and follow our social media for event updates.
                 </p>
-                <p class="text-md font-bold text-gray-600 dark:text-gray-400 mb-4 font-comfortaa">Date : To be announced</p>
-                <div class="mt-4 flex justify-end">
+                
+                <div class="space-y-4 text-gray-700 dark:text-gray-300 mb-8 font-comfortaa">
+                    <p><strong>Email:</strong> <a href="mailto:thelogicalfoundation1@gmail.com" class="text-blue-600 hover:underline dark:text-blue-400">thelogicalfoundation1@gmail.com</a></p>
                 </div>
-            </div>
 
-            <div class="announcement-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
-                <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Volunteer Opportunities</h2>
-                <p class="text-lg dark:text-gray-300 leading-relaxed text-justify mb-4 font-comfortaa">
-                    Join our team of dedicated volunteers and contribute to spreading awareness in your community. You will be contacted via email within a week of application.
-                </p>
-                <p class="text-md font-bold text-gray-600 dark:text-gray-400 mb-4 font-comfortaa">Ongoing Applications</p>
-                <div class="mt-4 flex justify-end">
-                    <button class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
-                        <a href="#" target="_blank">Join Us!</a>
-                    </button>
+                <div class="mt-6 flex flex-wrap items-center gap-6">
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-blue-600 hover:underline dark:text-blue-400 text-lg font-comfortaa">
+                        <svg class="w-6 h-6 dark:text-white" fill="currentColor" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M389.2 48h70.6L305.6 224.2 487 464H376.6L274.7 310.9 110.8 464H40.6L202.8 244.7 32.7 48h112.5l89.1 129.9L389.2 48zm-24.8 373.8h36.1L151.1 94.4H115z"/>
+                        </svg>
+                        Follow us on X!
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-blue-600 hover:underline dark:text-blue-400 text-lg font-comfortaa">
+                        <svg class="w-6 h-6 dark:text-white" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2.046c-5.462 0-9.914 4.388-9.914 9.794 0 4.346 3.023 8.016 7.004 9.176v-6.44H7.177V12.24h1.913V10.15c0-1.895 1.127-2.946 2.859-2.946 0.822 0 1.524 0.061 1.728 0.089v2.176h-1.28c-0.998 0-1.192 0.473-1.192 1.168v1.513h2.385l-0.31 2.378h-2.075v6.44c3.981-1.16 7.004-4.83 7.004-9.176 0-5.406-4.452-9.794-9.914-9.794z"/>
+                        </svg>
+                        Follow us on Facebook!
+                    </a>
+                    
                 </div>
             </div>
         </div>
-
-        <section id="upcoming-workshop-details" class="mt-16 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
-            <h2 class="text-3xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Upcoming Workshop-01 Details</h2>
-            <p class="text-lg dark:text-gray-300 leading-relaxed text-justify font-comfortaa">
-                This free online session will cover fundamental concepts, common logical fallacies, and their application in everyday life. We aim to make complex ideas accessible and engaging for everyone. Stay tuned to our social media channels and this page for registration links and exact dates.
-            </p>
-            <p class="text-md font-bold text-gray-600 dark:text-gray-400 mt-4 font-comfortaa">Expected Time: Late 2025</p>
-        </section>
     </main>
 
     <footer class="bg-blue-900 font-bold dark:bg-blue-950 text-white text-center p-4 shadow-lg mt-auto">
@@ -222,11 +230,10 @@
         setSystemTheme(); // Set theme on initial load
         // Listen for changes in system theme preference
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setSystemTheme);
-        
+
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
-
         if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
@@ -260,25 +267,6 @@
                 localStorage.setItem('accessibilityMode', !currentMode);
             });
         }
-
-        // Search functionality for announcements
-        const announcementSearchInput = document.getElementById('announcement-search');
-        const announcementCards = document.querySelectorAll('.announcement-card');
-
-        announcementSearchInput.addEventListener('keyup', (event) => {
-            const searchTerm = event.target.value.toLowerCase();
-
-            announcementCards.forEach(card => {
-                const title = card.querySelector('h2').textContent.toLowerCase();
-                const content = card.querySelector('p').textContent.toLowerCase();
-
-                if (title.includes(searchTerm) || content.includes(searchTerm)) {
-                    card.style.display = 'block'; // Show the card
-                } else {
-                    card.style.display = 'none'; // Hide the card
-                }
-            });
-        });
     </script>
 </body>
 </html>

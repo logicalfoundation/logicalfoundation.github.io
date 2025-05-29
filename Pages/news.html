@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources - Logical Foundation</title>
+    <title>Announcements - Logical Foundation</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M8 16V8h8'/%3E%3C/svg%3E" type="image/svg+xml">
     <style>
-        /* Basic body styling for flex layout and font */
         body {
             font-family: 'Inter', sans-serif;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
+            display: flex; /* Added for sticky footer */
+            flex-direction: column; /* Added for sticky footer */
+            min-height: 100vh; /* Added for sticky footer */
         }
-        /* Custom scrollbar styling for better aesthetics */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -29,9 +27,7 @@
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
-            cursor: pointer;
         }
-        /* Dark mode scrollbar styling */
         .dark ::-webkit-scrollbar-track {
             background: #333;
         }
@@ -41,9 +37,8 @@
         .dark ::-webkit-scrollbar-thumb:hover {
             background: #777;
         }
-        /* Main content area to grow and push footer to bottom */
         main {
-            flex-grow: 1;
+            flex-grow: 1; /* Added for sticky footer */
         }
         /* Comfortaa font for descriptive texts */
         .font-comfortaa {
@@ -124,7 +119,7 @@
 
     <nav class="bg-blue-900 dark:bg-blue-950 p-4 text-white shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
-            <a href="index.html" class="flex items-center text-2xl font-bold text-white rounded-lg p-2 hover:bg-blue-600 dark:hover:bg-blue-800 transition duration-300">
+            <a href="/index.html" class="flex items-center text-2xl font-bold text-white rounded-lg p-2 hover:bg-blue-600 dark:hover:bg-blue-800 transition duration-300">
                 <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="12" cy="12" r="10" stroke-width="2"/>
                     <path d="M8 16V8h8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -132,8 +127,8 @@
             </a>
             
             <div class="hidden md:flex space-x-6">
-                <a href="about.html" class="hover:text-blue-200 text-2xl duration-300 p-2 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-800">About Us</a>
-                <a href="news.html" class="hover:text-blue-200 text-2xl duration-300 p-2 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-800">Announcements</a>
+                <a href="about.html" class="hover:text-blue-200 transition duration-300 p-2 rounded-lg text-2xl hover:bg-blue-600 dark:hover:bg-blue-800">About Us</a>
+                <a href="resources.html" class="hover:text-blue-200 text-2xl duration-300 p-2 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-800">Resources</a>
             </div>
 
             <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-800 transition duration-300">
@@ -144,59 +139,63 @@
         </div>
 
         <div id="mobile-menu" class="hidden md:hidden bg-blue-900 dark:bg-blue-950 mt-2 rounded-lg mx-auto container">
-            <a href="about.html" class="block py-3 px-4 text-2xl text-white hover:bg-blue-700 dark:hover:bg-blue-900 rounded-lg transition duration-300">About Us</a>
-            <a href="news.html" class="block py-3 px-4 text-2xl text-white hover:bg-blue-700 dark:hover:bg-blue-900 rounded-lg transition duration-300">Announcements</a>
+            <a href="about.html" class="block py-3 px-4 text-white hover:bg-blue-700 dark:hover:bg-blue-900 rounded-lg text-2xl duration-300">About Us</a>
+            <a href="resources.html" class="block py-3 px-4 text-2xl text-white hover:bg-blue-700 dark:hover:bg-blue-900 rounded-lg transition duration-300">Resources</a>
         </div>
     </nav>
 
     <main class="container mx-auto p-8 py-12">
-        <h1 class="text-4xl font-extrabold text-blue-800 dark:text-blue-300 mb-8 text-center">Our Resources</h1>
+        <h1 class="text-4xl font-extrabold text-blue-800 dark:text-blue-300 mb-8 text-center">Announcements</h1>
 
         <div class="mb-8">
-            <input type="text" id="resource-search" placeholder="Search resources..." class="w-full p-3 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 transition duration-300">
+            <input type="text" id="announcement-search" placeholder="Search announcements..." class="w-full p-3 rounded-full shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 transition duration-300">
         </div>
 
-        <div id="resource-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="resource-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
-                <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Understanding and Avoiding Logical Fallacies</h2>
+        <div id="announcement-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="announcement-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
+                <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Launch Event</h2>
                 <p class="text-lg dark:text-gray-300 leading-relaxed text-justify mb-4 font-comfortaa">
-                    A comprehensive guide to common logical fallacies, helping you identify and avoid flawed arguments in everyday discourse.
+                    Join us for the event in Youtube Live where we discuss our founding story, our goals, and the importance of science and logic in the modern age.
                 </p>
+                <p class="text-md font-bold text-gray-600 dark:text-gray-400 mb-4 font-comfortaa">Date: August 5, 2025</p>
                 <div class="mt-4 flex justify-end">
-                    <a href="article1.html" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Read Article</a>
+                    <button class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        <a href="#" target="_blank">Register Now!</a>
+                    </button>
                 </div>
             </div>
 
-            <div class="resource-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
-                <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4">The Importance of Critical Thinking</h2>
+            <div class="announcement-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
+                <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Workshop-01</h2>
                 <p class="text-lg dark:text-gray-300 leading-relaxed text-justify mb-4 font-comfortaa">
-                    Explore why critical thinking is a vital skill in the modern world and how to cultivate it in your daily life.
+                    Our first online workshop will cover fundamental concepts, common logical fallacies, and their application in everyday life.
                 </p>
+                <p class="text-md font-bold text-gray-600 dark:text-gray-400 mb-4 font-comfortaa">Date : To be announced</p>
                 <div class="mt-4 flex justify-end">
-                    <a href="article2.html" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Read Article</a>
                 </div>
             </div>
 
-            <div class="resource-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
-                <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Science vs. Pseudoscience: A Clear Distinction</h2>
+            <div class="announcement-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
+                <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Volunteer Opportunities</h2>
                 <p class="text-lg dark:text-gray-300 leading-relaxed text-justify mb-4 font-comfortaa">
-                    Learn to differentiate between genuine scientific inquiry and claims that lack empirical evidence.
+                    Join our team of dedicated volunteers and contribute to spreading awareness in your community. You will be contacted via email within a week of application.
                 </p>
+                <p class="text-md font-bold text-gray-600 dark:text-gray-400 mb-4 font-comfortaa">Ongoing Applications</p>
                 <div class="mt-4 flex justify-end">
-                    <a href="article3.html" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Read Article</a>
-                </div>
-            </div>
-
-            <div class="resource-card bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
-                <h2 class="text-2xl font-semibold text-blue-700 dark:text-blue-400 mb-4">The Role of Philosophy in Everyday Life</h2>
-                <p class="text-lg dark:text-gray-300 leading-relaxed text-justify mb-4 font-comfortaa">
-                    Discover how philosophical concepts can provide frameworks for understanding and navigating complex issues.
-                </p>
-                <div class="mt-4 flex justify-end">
-                    <a href="article4.html" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">Read Article</a>
+                    <button class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-2 px-5 rounded-full transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                        <a href="#" target="_blank">Join Us!</a>
+                    </button>
                 </div>
             </div>
         </div>
+
+        <section id="upcoming-workshop-details" class="mt-16 bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
+            <h2 class="text-3xl font-semibold text-blue-700 dark:text-blue-400 mb-4">Upcoming Workshop-01 Details</h2>
+            <p class="text-lg dark:text-gray-300 leading-relaxed text-justify font-comfortaa">
+                This free online session will cover fundamental concepts, common logical fallacies, and their application in everyday life. We aim to make complex ideas accessible and engaging for everyone. Stay tuned to our social media channels and this page for registration links and exact dates.
+            </p>
+            <p class="text-md font-bold text-gray-600 dark:text-gray-400 mt-4 font-comfortaa">Expected Time: Late 2025</p>
+        </section>
     </main>
 
     <footer class="bg-blue-900 font-bold dark:bg-blue-950 text-white text-center p-4 shadow-lg mt-auto">
@@ -224,23 +223,23 @@
         // Listen for changes in system theme preference
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setSystemTheme);
         
-        // Mobile menu toggle functionality
+        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
 
         if (mobileMenuButton && mobileMenu) {
             mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden'); // Toggles the 'hidden' class to show/hide the menu
+                mobileMenu.classList.toggle('hidden');
             });
         }
-        // Set current year in footer dynamically
+        // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         // Accessibility toggle functionality
         const accessibilityToggle = document.getElementById('accessibility-toggle');
         const body = document.body;
 
-        // Function to apply or remove accessibility mode styles
+        // Function to apply accessibility mode
         function applyAccessibilityMode(enabled) {
             if (enabled) {
                 body.classList.add('accessibility-mode');
@@ -249,27 +248,27 @@
             }
         }
 
-        // Check local storage for accessibility preference on page load
+        // Check local storage for accessibility preference on load
         const isAccessibilityModeEnabled = localStorage.getItem('accessibilityMode') === 'true';
         applyAccessibilityMode(isAccessibilityModeEnabled);
 
-        // Toggle accessibility mode on button click and save preference to local storage
+        // Toggle accessibility mode on button click
         if (accessibilityToggle) {
             accessibilityToggle.addEventListener('click', () => {
                 const currentMode = body.classList.contains('accessibility-mode');
-                applyAccessibilityMode(!currentMode); // Toggle the mode
-                localStorage.setItem('accessibilityMode', !currentMode); // Save the new preference
+                applyAccessibilityMode(!currentMode);
+                localStorage.setItem('accessibilityMode', !currentMode);
             });
         }
 
-        // Search functionality for resources
-        const resourceSearchInput = document.getElementById('resource-search');
-        const resourceCards = document.querySelectorAll('.resource-card');
+        // Search functionality for announcements
+        const announcementSearchInput = document.getElementById('announcement-search');
+        const announcementCards = document.querySelectorAll('.announcement-card');
 
-        resourceSearchInput.addEventListener('keyup', (event) => {
+        announcementSearchInput.addEventListener('keyup', (event) => {
             const searchTerm = event.target.value.toLowerCase();
 
-            resourceCards.forEach(card => {
+            announcementCards.forEach(card => {
                 const title = card.querySelector('h2').textContent.toLowerCase();
                 const content = card.querySelector('p').textContent.toLowerCase();
 
