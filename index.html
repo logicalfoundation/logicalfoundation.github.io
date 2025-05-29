@@ -3,14 +3,348 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Logical Foundation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M8 16V8h8'/%3E%3C/svg%3E" type="image/svg+xml">
+    <style>
+        /* Base body styling for consistent font, flex layout for sticky footer, and minimum height */
+        body {
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        /* Custom scrollbar styling for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+        /* Dark mode scrollbar styling */
+        .dark ::-webkit-scrollbar-track {
+            background: #333;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #555;
+        }
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #777;
+        }
+        /* Keyframe animation for the bounce effect on the scroll-down button */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(-25%);
+                animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+            50% {
+                transform: translateY(0);
+                animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+        }
+        /* Apply the bounce animation */
+        .animate-bounce {
+            animation: bounce 1s infinite;
+        }
+
+        /* Keyframe animation for subtle pulse effect on the announcement banner */
+        @keyframes pulse-subtle {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.01);
+                opacity: 0.95;
+            }
+        }
+        /* Apply the subtle pulse animation */
+        .animate-pulse-subtle {
+            animation: pulse-subtle 3s infinite ease-in-out;
+        }
+
+        /* Main content area takes up remaining vertical space for sticky footer */
+        main {
+            flex-grow: 1;
+        }
+
+        /* Comfortaa font for descriptive texts */
+        .font-comfortaa {
+            font-family: 'Comfortaa', cursive;
+        }
+
+        /* Accessibility Mode Styles */
+        .accessibility-mode {
+            font-size: 1.15em; /* Slightly larger text */
+            line-height: 1.6; /* Improved readability */
+            background-color: #000 !important; /* High contrast background */
+            color: #FFFF00 !important; /* High contrast text */
+        }
+
+        .accessibility-mode .dark\:bg-gray-900 {
+            background-color: #000 !important;
+        }
+
+        .accessibility-mode .dark\:text-gray-100 {
+            color: #FFFF00 !important;
+        }
+
+        /* Override specific Tailwind classes in accessibility mode */
+        .accessibility-mode .bg-gray-100 {
+            background-color: #000 !important;
+        }
+        .accessibility-mode .text-gray-900 {
+            color: #FFFF00 !important;
+        }
+        .accessibility-mode .bg-white {
+            background-color: #333 !important; /* Darker background for cards */
+            color: #FFFF00 !important;
+        }
+        .accessibility-mode .dark\:bg-gray-800 {
+            background-color: #333 !important;
+        }
+        .accessibility-mode .text-blue-800,
+        .accessibility-mode .dark\:text-blue-300,
+        .accessibility-mode .text-blue-700,
+        .accessibility-mode .dark\:text-blue-400,
+        .accessibility-mode .text-blue-600,
+        .accessibility-mode .dark\:text-blue-500 {
+            color: #00FFFF !important; /* Cyan for accents */
+        }
+        .accessibility-mode .text-gray-600,
+        .accessibility-mode .dark\:text-gray-400,
+        .accessibility-mode .text-gray-700,
+        .accessibility-mode .dark\:text-gray-300 {
+            color: #E0E0E0 !important; /* Lighter gray for secondary text */
+        }
+        .accessibility-mode a {
+            color: #00FFFF !important; /* Cyan for links */
+        }
+        .accessibility-mode .bg-blue-900,
+        .accessibility-mode .dark\:bg-blue-950 {
+            background-color: #1a1a1a !important; /* Darker blue for nav/footer */
+        }
+        .accessibility-mode .hover\:bg-blue-600,
+        .accessibility-mode .dark\:hover\:bg-blue-800 {
+            background-color: #0056b3 !important; /* Darker hover for buttons */
+        }
+        .accessibility-mode .bg-blue-600,
+        .accessibility-mode .dark\:bg-blue-700 {
+            background-color: #007bff !important; /* Brighter blue for buttons */
+        }
+        .accessibility-mode .bg-gradient-to-r {
+            background: linear-gradient(to right, #000, #333, #666) !important; /* Adjust gradients */
+            color: #FFFF00 !important;
+        }
+        .accessibility-mode .prose {
+            color: #FFFF00 !important;
+        }
+        .accessibility-mode .prose h1, .accessibility-mode .prose h2, .accessibility-mode .prose h3 {
+            color: #00FFFF !important;
+        }
+    </style>
 </head>
-<body>
-    <ul>
-        <li>Website of Logical Foundation to be launched on 5 August, 2025.</li>
-        <li>The mission is to promote science, logic and critical thinking in everyday life.</li>
-        <li>To be a part of this initiative and to know more, contact me through email.</li>
-        <li>Get in touch here : <a href="mailto:somiomuktadir@gmail.com">Muktadir Somio</a></li>
-    </ul>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <nav class="bg-blue-900 dark:bg-blue-950 p-4 text-white shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center text-2xl font-bold text-white rounded-lg p-2 hover:bg-blue-600 dark:hover:bg-blue-800 transition duration-300">
+                <svg class="w-8 h-8 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                    <path d="M8 16V8h8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>Logical Foundation
+            </a>
+            
+            <div class="hidden md:flex space-x-6">
+                <a href="Pages/about.html" class="hover:text-blue-200 text-2xl duration-300 p-2 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-800">About US</a>
+                <a href="Pages/news.html" class="hover:text-blue-200 text-2xl duration-300 p-2 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-800">Announcements</a>
+                <a href="Pages/resources.html" class="hover:text-blue-200 text-2xl duration-300 p-2 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-800">Resources</a>
+            </div>
+
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none p-2 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-800 transition duration-300">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-4 6h4"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-blue-900 dark:bg-blue-950 mt-2 rounded-lg mx-auto container">
+            <a href="Pages/about.html" class="block py-3 px-4 text-2xl text-white hover:bg-blue-700 dark:hover:bg-blue-900 rounded-lg transition duration-300">About Us</a>
+            <a href="Pages/news.html" class="block py-3 px-4 text-2xl text-white hover:bg-blue-700 dark:hover:bg-blue-900 rounded-lg transition duration-300">Announcements</a>
+            <a href="Pages/resources.html" class="block py-3 px-4 text-2xl text-white hover:bg-blue-700 dark:hover:bg-blue-900 rounded-lg transition duration-300">Resources</a>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-8 py-16 flex flex-col items-center justify-center">
+        <a href="index.html" class="w-full max-w-5xl mb-10 block">
+            <div class="bg-gradient-to-r from-white via-blue-400 to-purple-600 text-gray-900 p-6 rounded-xl shadow-lg transform hover:scale-[1.02] transition duration-300 ease-in-out flex items-center justify-between animate-pulse-subtle border-2 border-blue-400">
+                <div class="flex items-center">
+                    <svg class="w-8 h-8 mr-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="text-xl font-semibold">📢 Our website is live!</span>
+                </div>
+                <svg class="w-6 h-6 ml-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </div>
+        </a>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-5xl mb-16">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300 flex flex-col justify-between">
+                <div>
+                    <h2 class="text-4xl font-extrabold text-blue-800 dark:text-blue-300 mb-6 leading-tight">
+                        Welcome to the <span class="text-blue-600 dark:text-blue-400">Logical Foundation</span>
+                    </h2>
+                    <p class="text-lg md:text-xl text-gray-700 dark:text-gray-300 leading-relaxed text-justify font-comfortaa">
+                        We are a non-profit collective of, by and for students, common people, and volunteers passionate about science, philosophy, and logic. We are committed to improving the lives of Bangladeshi people.
+                    </p>
+                </div>
+                <div class="mt-6 text-center md:hidden"> 
+                    <button id="scroll-down-button" class="bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out shadow-lg flex items-center justify-center mx-auto">
+                        <svg class="w-6 h-6 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div id="our-mission-card" class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-[1.01] hover:ring-4 hover:ring-blue-300 transition duration-300">
+                <h2 class="text-4xl font-extrabold text-blue-800 dark:text-blue-300 mb-4">Our Mission</h2>
+                <ul class="list-disc list-inside text-lg font-semibold text-justify text-gray-700 dark:text-gray-300 space-y-3 font-comfortaa">
+                    <li>Spread awareness about science, logic & critical thinking to combat fallacies, illiteracy & misinformation.</li>
+                    <li>Promote reasoned discourse and intellectual integrity through educational programs, research, and community outreach.</li>
+                </ul>
+            </div>
+        </div>
+
+        <section class="w-full max-w-5xl text-center mb-16">
+            <h2 class="text-4xl font-extrabold text-blue-800 dark:text-blue-300 mb-10">Explore Our Foundation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 flex flex-col items-center border-b-4 border-blue-500 hover:border-blue-700">
+                    <svg class="w-16 h-16 text-blue-600 dark:text-blue-400 mb-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.29-6-3.22.03-1.99 4-3.08 6-3.08s5.97 1.09 6 3.08c-1.29 1.93-3.5 3.22-6 3.22z"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Who We Are</h3>
+                    <p class="text-md dark:text-gray-300 leading-relaxed text-justify mb-6 font-comfortaa">
+                        Learn about our story, our dedicated team, and the milestones that define our journey.
+                    </p>
+                    <a href="about.html" class="mt-auto bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl">
+                        Meet the Foundation
+                    </a>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 flex flex-col items-center border-b-4 border-blue-500 hover:border-blue-700">
+                    <svg class="w-16 h-16 text-blue-600 dark:text-blue-400 mb-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm0 16c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7zm-1-12h2v6h-2zm0 8h2v2h-2z"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Latest Updates</h3>
+                    <p class="text-md dark:text-gray-300 leading-relaxed text-justify mb-6 font-comfortaa">
+                        Stay informed about our upcoming events, workshops, and volunteer opportunities.
+                    </p>
+                    <a href="news.html" class="mt-auto bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl">
+                        See Announcements
+                    </a>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg transform hover:scale-105 transition duration-300 flex flex-col items-center border-b-4 border-blue-500 hover:border-blue-700">
+                    <svg class="w-16 h-16 text-blue-600 dark:text-blue-400 mb-4" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm-2 16H9v-2h3v2zm3-4H9v-2h6v2zm0-4H9V8h6v2z"/>
+                    </svg>
+                    <h3 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-3">Educational Content</h3>
+                    <p class="text-md dark:text-gray-300 leading-relaxed text-justify mb-6 font-comfortaa">
+                        Dive into articles and guides on logical fallacies, critical thinking, and scientific literacy.
+                    </p>
+                    <a href="resources.html" class="mt-auto bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out shadow-lg hover:shadow-xl">
+                        Access Resources
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <footer class="bg-blue-900 font-bold dark:bg-blue-950 text-white text-center p-4 shadow-lg mt-auto">
+        <div class="container mx-auto">
+            <p>&copy; <span id="currentYear"></span> Logical Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button id="accessibility-toggle" class="fixed bottom-4 right-4 bg-blue-600 hover:bg-blue-700 dark:bg-blue-700 dark:hover:bg-blue-800 text-white p-3 rounded-full shadow-lg transition duration-300 focus:outline-none z-50">
+        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+        </svg>
+    </button>
+
+    <script>
+        // Function to set the theme based on system preference (dark/light mode)
+        function setSystemTheme() {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+        setSystemTheme(); // Set theme on initial load
+        // Listen for changes in system theme preference and update theme accordingly
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setSystemTheme);
+
+        // Mobile menu toggle functionality
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden'); // Toggle visibility of the mobile menu
+            });
+        }
+
+        // Scroll down button functionality (for mobile view)
+        const scrollDownButton = document.getElementById('scroll-down-button');
+        const ourMissionCard = document.getElementById('our-mission-card');
+        if (scrollDownButton && ourMissionCard) {
+            scrollDownButton.addEventListener('click', () => {
+                // Smoothly scroll to the "Our Mission" card
+                ourMissionCard.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+
+        // Set current year in footer dynamically
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Accessibility toggle functionality
+        const accessibilityToggle = document.getElementById('accessibility-toggle');
+        const body = document.body;
+
+        // Function to apply accessibility mode
+        function applyAccessibilityMode(enabled) {
+            if (enabled) {
+                body.classList.add('accessibility-mode');
+            } else {
+                body.classList.remove('accessibility-mode');
+            }
+        }
+
+        // Check local storage for accessibility preference on load
+        const isAccessibilityModeEnabled = localStorage.getItem('accessibilityMode') === 'true';
+        applyAccessibilityMode(isAccessibilityModeEnabled);
+
+        // Toggle accessibility mode on button click
+        if (accessibilityToggle) {
+            accessibilityToggle.addEventListener('click', () => {
+                const currentMode = body.classList.contains('accessibility-mode');
+                applyAccessibilityMode(!currentMode);
+                localStorage.setItem('accessibilityMode', !currentMode);
+            });
+        }
+    </script>
 </body>
 </html>
